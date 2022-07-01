@@ -1,0 +1,8 @@
+arkounay_quick_admin_generator:
+    dashboard_route_redirection: 'qag.article'
+    global_search: true
+    title: 'QAG Bundle - Demo'
+
+when@dev:
+    arkounay_quick_admin_generator:
+        allow_form_resubmit: true
