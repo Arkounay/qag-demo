@@ -1,5 +1,7 @@
 {% extends '@!ArkounayQuickAdminGenerator/base.html.twig' %}
 
+{% block url_turbo_root_prefix '/' %}
+
 {% block user_menu_dropdown_homepage %}
     <a class="dropdown-item" href="https://github.com/Arkounay/QuickAdminGeneratorBundle">
         {{ qag_render_icon('brand-github', 50, 44, 'icon dropdown-item-icon') }}
