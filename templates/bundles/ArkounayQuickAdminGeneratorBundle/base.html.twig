@@ -1,8 +1,12 @@
 {% extends '@!ArkounayQuickAdminGenerator/base.html.twig' %}
 
 {% block user_menu_dropdown_homepage %}
-    <a class="dropdown-item" href="/">
+    <a class="dropdown-item" href="https://github.com/Arkounay/QuickAdminGeneratorBundle">
         {{ qag_render_icon('brand-github', 50, 44, 'icon dropdown-item-icon') }}
         Bundle Repository
+    </a>
+    <a class="dropdown-item" href="https://github.com/Arkounay/qag-demo">
+        {{ qag_render_icon('code', 50, 44, 'icon dropdown-item-icon') }}
+        Demo Repository
     </a>
 {% endblock %}
