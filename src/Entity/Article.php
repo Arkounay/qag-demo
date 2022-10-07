@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Enum\ArticleTypeEnum;
 use App\Repository\ArticleRepository;
 use Arkounay\Bundle\QuickAdminGeneratorBundle\Annotation as QAG;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,6 +16,11 @@ class Article
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private ?int $id = null;
+
+    #[ORM\Column(enumType: ArticleTypeEnum::class)]
+    #[Assert\NotNull]
+    #[QAG\Field(position: 6)]
+    private ?ArticleTypeEnum $type = null;
 
     #[ORM\Column(type: 'date')]
     #[Assert\NotNull]
@@ -30,7 +36,6 @@ class Article
     #[QAG\Field(formType: TextareaType::class)]
     #[QAG\HideInList]
     private ?string $content;
-
 
     #[ORM\Column]
     private bool $published;
@@ -48,6 +53,17 @@ class Article
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getType(): ArticleTypeEnum
+    {
+        return $this->type;
+    }
+
+    public function setType(ArticleTypeEnum $type): self
+    {
+        $this->type = $type;
+        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface

@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Enum\ArticleTypeEnum;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -24,6 +25,7 @@ class Fixtures extends Fixture
 
         for ($i = 0; $i < 35; $i++) {
             $article = (new Article())
+                ->setType($faker->randomElement(ArticleTypeEnum::cases()))
                 ->setCategory($faker->randomElement($categories))
                 ->setTitle($faker->text(60))
                 ->setContent($faker->paragraphs(3, true))

@@ -27,4 +27,18 @@ class CategoryController extends Crud
     {
         return true;
     }
+
+    public function isExportable(): bool
+    {
+        return true;
+    }
+
+    protected function backUrl(): string
+    {
+        if ($from = $this->request->query->get('from')) {
+            return $this->generateUrl($from);
+        }
+        return parent::backUrl();
+    }
+
 }
